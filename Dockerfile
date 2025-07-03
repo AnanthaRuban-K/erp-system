@@ -7,14 +7,10 @@ COPY package*.json ./
 COPY nx.json ./
 COPY tsconfig*.json ./
 
-# Copy workspace files
-COPY apps/frontend/package*.json ./apps/frontend/
-COPY apps/frontend/tsconfig*.json ./apps/frontend/
-
-# Install dependencies
+# Install root dependencies
 RUN npm install
 
-# Copy all source code
+# Copy source code
 COPY . .
 
 # Build the frontend
