@@ -2,25 +2,25 @@ FROM node:18-alpine
 
 WORKDIR /app
 
-# Copy package files
+# Copy package files first for better caching
 COPY package*.json ./
 COPY nx.json ./
 COPY tsconfig*.json ./
 
-# Copy workspace configuration
+# Copy workspace files
 COPY apps/frontend/package*.json ./apps/frontend/
-COPY libs/ ./libs/
+COPY apps/frontend/tsconfig*.json ./apps/frontend/
 
 # Install dependencies
 RUN npm install
 
-# Copy source code
+# Copy all source code
 COPY . .
 
-# Build the frontend application
+# Build the frontend
 RUN npx nx build frontend
 
-# Expose port
+# Expose port 3000
 EXPOSE 3000
 
 # Start the application

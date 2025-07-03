@@ -1,16 +1,11 @@
 {
-  "name": "@erp-system/source",
-  "version": "0.0.0",
+  "name": "@erp-system",
+  "version": "1.0.0",
   "license": "MIT",
   "scripts": {
-    "dev": "nx run-many -t serve -p frontend,backend --parallel=2",
-    "dev:frontend": "nx serve frontend",
-    "dev:backend": "nx serve backend",
-    "build": "nx run-many -t build --all",
-    "test": "nx run-many -t test --all",
-    "lint": "nx run-many -t lint --all",
-    "graph": "nx graph",
-    "reset": "nx reset"
+    "build": "cd apps/frontend && npm run build",
+    "start": "cd apps/frontend && npm start",
+    "postinstall": "cd apps/frontend && npm install"
   },
   "private": true,
   "devDependencies": {
