@@ -1,47 +1,38 @@
 {
   "name": "@erp-system",
   "version": "1.0.0",
-  "license": "MIT",
-  "scripts": {
-    "build": "cd apps/frontend && npm run build",
-    "start": "cd apps/frontend && npm start",
-    "postinstall": "cd apps/frontend && npm install"
-  },
   "private": true,
-  "devDependencies": {
-    "@nx/devkit": "^21.2.2",
-    "@nx/esbuild": "21.2.2",
-    "@nx/eslint": "^21.2.2",
-    "@nx/jest": "^21.2.2",
-    "@nx/js": "^21.2.2",
-    "@nx/next": "^21.2.2",
-    "@nx/node": "^21.2.2",
-    "@nx/workspace": "^21.2.2",
-    "@swc-node/register": "~1.9.1",
-    "@swc/cli": "~0.6.0",
-    "@swc/core": "~1.5.7",
-    "@swc/helpers": "~0.5.11",
-    "@types/node": "~18.16.9",
-    "@types/react": "19.0.0",
-    "@types/react-dom": "19.0.0",
-    "esbuild": "^0.19.2",
-    "nx": "^21.2.2",
-    "prettier": "^2.6.2",
-    "tslib": "^2.3.0",
-    "typescript": "~5.8.2"
+  "scripts": {
+    "dev": "nx run-many -t serve --parallel=2",
+    "dev:frontend": "nx serve frontend",
+    "dev:backend": "nx serve backend",
+    "build": "nx run-many -t build",
+    "test": "nx run-many -t test",
+    "test:watch": "nx run-many -t test --watch",
+    "lint": "npx biome check .",
+    "lint:fix": "npx biome check . --apply",
+    "format": "npx biome format . --write",
+    "type-check": "nx run-many -t type-check",
+    "e2e": "nx run-many -t e2e",
+    "db:generate": "cd apps/backend && drizzle-kit generate:pg",
+    "db:migrate": "cd apps/backend && drizzle-kit push:pg",
+    "db:studio": "cd apps/backend && drizzle-kit studio",
+    "storybook": "nx storybook frontend",
+    "build-storybook": "nx build-storybook frontend"
+
   },
-  "workspaces": [
-    "packages/*"
-  ],
-  "dependencies": {
-    "@clerk/backend": "^2.3.1",
-    "@clerk/nextjs": "^6.23.2",
-    "@clerk/themes": "^2.2.53",
-    "@hono/clerk-auth": "^3.0.1",
-    "@hono/node-server": "^1.15.0",
-    "hono": "^4.8.3",
-    "next": "~15.2.4",
-    "react": "19.0.0",
-    "react-dom": "19.0.0"
+  "devDependencies": {
+    "@nx/eslint": "latest",
+    "@nx/next": "latest",
+    "@nx/node": "latest",
+    "@biomejs/biome": "latest",
+    "vitest": "latest",
+    "@vitest/ui": "latest",
+    "@testing-library/react": "latest",
+    "@testing-library/jest-dom": "latest",
+    "playwright": "latest",
+    "@playwright/test": "latest",
+    "msw": "latest",
+    "nx": "latest"
   }
 }
