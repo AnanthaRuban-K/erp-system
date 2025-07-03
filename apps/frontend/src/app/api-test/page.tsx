@@ -49,27 +49,29 @@ export default function ApiTestPage() {
         {/* Test Buttons */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
           {endpoints.map(({ name, endpoint, color }) => (
-            <button
-              key={name}
-              onClick={() => testEndpoint(name, endpoint)}
-              disabled={loading === name}
-              className={`p-4 rounded-lg text-white font-semibold transition-colors ${color}
-                ${loading === name ? 'opacity-50 cursor-not-allowed' : ''}`}
-            >
-              {loading === name ? 'Testing...' : `Test ${name}`}
-            </button>
-          ))}
+  <button
+    key={name}
+    type="button"
+    onClick={() => testEndpoint(name, endpoint)}
+    disabled={loading === name}
+    className={`p-4 rounded-lg text-white font-semibold transition-colors ${color}
+      ${loading === name ? 'opacity-50 cursor-not-allowed' : ''}`}
+  >
+    {loading === name ? 'Testing...' : `Test ${name}`}
+  </button>
+))}
         </div>
 
         {/* Test All Button */}
         <div className="mb-8 text-center">
-          <button
-            onClick={() => endpoints.forEach(({ name, endpoint }) => testEndpoint(name, endpoint))}
-            disabled={loading !== null}
-            className="bg-gray-800 hover:bg-gray-900 text-white px-6 py-3 rounded-lg font-semibold disabled:opacity-50"
-          >
-            🚀 Test All Endpoints
-          </button>
+  <button
+    type="button"
+    onClick={() => endpoints.forEach(({ name, endpoint }) => testEndpoint(name, endpoint))}
+    disabled={loading !== null}
+    className="bg-gray-800 hover:bg-gray-900 text-white px-6 py-3 rounded-lg font-semibold disabled:opacity-50"
+  >
+    🚀 Test All Endpoints
+  </button>
         </div>
 
         {/* Responses */}

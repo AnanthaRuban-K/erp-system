@@ -19,20 +19,30 @@
     "db:studio": "cd apps/backend && drizzle-kit studio",
     "storybook": "nx storybook frontend",
     "build-storybook": "nx build-storybook frontend"
-
   },
   "devDependencies": {
-    "@nx/eslint": "latest",
-    "@nx/next": "latest",
-    "@nx/node": "latest",
     "@biomejs/biome": "latest",
-    "vitest": "latest",
-    "@vitest/ui": "latest",
-    "@testing-library/react": "latest",
-    "@testing-library/jest-dom": "latest",
-    "playwright": "latest",
+    "@nx/esbuild": "^21.2.2",
+    "@nx/eslint": "latest",
+    "@nx/js": "^21.2.2",
+    "@nx/next": "^21.2.2",
+    "@nx/node": "^21.2.2",
+    "@nx/web": "^21.2.2",
+    "@nx/workspace": "^21.2.2",
     "@playwright/test": "latest",
+    "@testing-library/jest-dom": "latest",
+    "@testing-library/react": "latest",
+    "@types/react": "^19.1.8",
+    "@types/react-dom": "^19.1.6",
+    "@vitest/ui": "latest",
     "msw": "latest",
-    "nx": "latest"
+    "nx": "latest",
+    "playwright": "latest",
+    "vitest": "latest"
+  },
+  "dependencies": {
+    "@clerk/nextjs": "^6.23.2",
+    "@hono/node-server": "^1.15.0",
+    "hono": "^4.8.3"
   }
 }
